@@ -1,0 +1,29 @@
+##################################################################
+# +------------------------------------------------------------+ #
+# |                  qTemplate Messages                        | #
+# |   Source:   https://github.com/QarthO/qTemplate/           | #
+# |   Download: https://modrinth.com/plugin/qTemplate/         | #
+# |   Donate:   https://quartzdev.gg/donate/                   | #
+# |   Discord:  https://quartzdev.gg/discord/                  | #
+# +------------------------------------------------------------+ #
+##################################################################
+
+# All messages support MiniMessage formatting tags!
+# Docs: https://docs.advntr.dev/minimessage/format.html
+# Web Viewer: https://webui.advntr.dev
+
+# What <prefix> tag is replaced with
+CHAT_PREFIX: "<aqua>TemplatePlugin <bold><gray>></bold>"
+
+# Player attempts to run a command they don't have permission for
+ERROR_NO_PERMISSION: "<prefix> <red>Error: You don't have permission to perform this"
+
+# Player attempts to run a command that's only available in the console
+ERROR_CONSOLE_ONLY_COMMAND: "<prefix> <red>This command can only be ran from the console"
+
+# If no sub-command is found
+CMD_NOT_FOUND: "<prefix> <red>Unknown command: <yellow><command>"
+
+# Player sends incorrect syntax for a command
+# Note: <label> is replaced with whatever the command label the player used (includes aliases)
+#SYNTAX_COMMAND: "<prefix> <red>Syntax: /<label> command <value>"
