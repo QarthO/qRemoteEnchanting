@@ -9,11 +9,11 @@
 
 ---
 
-# qTemplate Plugin
+# qRemoteEnchanting
 
 ---
 
-### Source code blank project to easily make new plugins
+### Use your enchanter wirelessly via a command or item!
 
 ---
 <h3> Tested Versions </h3>
@@ -23,27 +23,28 @@
 
 ---
 
-<b><u>How does it work?</b></u> Description here
+<b><u>How does it work?</b></u>
+Players can individually link their enchanting table, then can open now open that enchanting table remotely via a command. Alternatively, you can require the player to link it to an item.
 
 ---
 
 This plugin uses [bStats][bstats-url]. You can opt-out in the bStats config
 <div align="center">
 
-[![bStats for qTemplate Plugin][bstats-plugin-svg]][bstats-plugin-url]
+[![bStats for qRemoteEnchanting Plugin][bstats-plugin-svg]][bstats-plugin-url]
 </div>
 
 
 [modrinth-shield]: https://img.shields.io/badge/Download-00AF5C?logo=modrinth&logoColor=white&style=for-the-badge
-[modrinth-url]: https://modrinth.com/plugin/<plugin>
+[modrinth-url]: https://modrinth.com/plugin/qRemoteEnchanting
 [discord-shield]: https://img.shields.io/badge/Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge
 [discord-url]: https://www.quartzdev.gg/discord/
 [github-shield]: https://img.shields.io/badge/Source-181717?logo=github&logoColor=white&style=for-the-badge
-[github-url]: https://www.quartzdev.gg/paypal/
+[github-url]: https://github.com/qartho/qremoteenchanting
 [paypal-shield]: https://img.shields.io/badge/Donate-00457C?logo=paypal&logoColor=white&style=for-the-badge
 [paypal-url]: https://www.quartzdev.gg/paypal/
 [versions-shield]: https://img.shields.io/badge/1.20+-blue?style=for-the-badge&label=Minecraft%20Versions
-[versions-url]: https://www.quartzdev.gg/paypal/
+[versions-url]: https://modrinth.com/project/qremoteenchanting/versions
 [bstats-url]: https://bstats.org/
-[bstats-plugin-svg]: https://bstats.org/signatures/bukkit/qGPTrust.svg
-[bstats-plugin-url]: https://bstats.org/plugin/bukkit/<plugin>/
+[bstats-plugin-svg]: https://bstats.org/signatures/bukkit/qRemoteEnchanting.svg
+[bstats-plugin-url]: https://bstats.org/plugin/bukkit/qRemoteEnchanting/
