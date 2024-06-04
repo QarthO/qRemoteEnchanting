@@ -1,4 +1,4 @@
-name: qTemplatePlugin
+name: qRemoteEnchanting
 version: '${project.version}'
-main: gg.quartzdev.qtemplateplugin.QTemplatePlugin
-api-version: 1.19
+main: gg.quartzdev.qremoteenchanting.QRemoteEnchanting
+api-version: '1.20.6'

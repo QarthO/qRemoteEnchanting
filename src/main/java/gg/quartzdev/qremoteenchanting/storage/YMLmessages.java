@@ -1,9 +1,9 @@
-package gg.quartzdev.qtemplateplugin.storage;
+package gg.quartzdev.qremoteenchanting.storage;
 
 import gg.quartzdev.lib.qlibpaper.QLogger;
 import gg.quartzdev.lib.qlibpaper.lang.QMessage;
 import gg.quartzdev.lib.qlibpaper.storage.QConfiguration;
-import gg.quartzdev.qtemplateplugin.util.Messages;
+import gg.quartzdev.qremoteenchanting.util.Messages;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class YMLmessages extends QConfiguration {

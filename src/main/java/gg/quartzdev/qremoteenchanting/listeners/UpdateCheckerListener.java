@@ -1,9 +1,9 @@
-package gg.quartzdev.qtemplateplugin.listeners;
+package gg.quartzdev.qremoteenchanting.listeners;
 
 import gg.quartzdev.lib.qlibpaper.UpdateChecker;
-import gg.quartzdev.qtemplateplugin.TemplateAPI;
-import gg.quartzdev.qtemplateplugin.storage.ConfigPath;
-import gg.quartzdev.qtemplateplugin.storage.YMLconfig;
+import gg.quartzdev.qremoteenchanting.RemoteEnchantingAPI;
+import gg.quartzdev.qremoteenchanting.storage.ConfigPath;
+import gg.quartzdev.qremoteenchanting.storage.YMLconfig;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,14 +15,14 @@ public class UpdateCheckerListener implements Listener {
     YMLconfig config;
     public UpdateCheckerListener(String slug, String loader){
         updateChecker = new UpdateChecker(slug, loader);
-        config = TemplateAPI.getConfig();
+        config = RemoteEnchantingAPI.getConfig();
         if(config.get(ConfigPath.CHECK_UPDATES, true)) {
             checkForUpdates(null);
         }
     }
 
     public void checkForUpdates(Player player){
-        updateChecker.checkForUpdatesAsync(TemplateAPI.getPlugin(), TemplateAPI.getVersion(), player);
+        updateChecker.checkForUpdatesAsync(RemoteEnchantingAPI.getPlugin(), RemoteEnchantingAPI.getVersion(), player);
     }
 
     @EventHandler

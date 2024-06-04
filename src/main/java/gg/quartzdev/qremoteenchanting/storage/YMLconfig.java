@@ -1,8 +1,7 @@
-package gg.quartzdev.qtemplateplugin.storage;
+package gg.quartzdev.qremoteenchanting.storage;
 
 import gg.quartzdev.lib.qlibpaper.storage.ConfigOption;
 import gg.quartzdev.lib.qlibpaper.storage.QConfiguration;
-import org.bukkit.Material;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
@@ -29,6 +28,7 @@ public class YMLconfig extends QConfiguration {
 
 //        Check for updates
         setup(ConfigPath.CHECK_UPDATES, true, () -> yamlConfiguration.getBoolean(ConfigPath.CHECK_UPDATES.get()));
+        setup(ConfigPath.ALIASES, List.of("enchanter"), () -> yamlConfiguration.getStringList(ConfigPath.ALIASES.get()));
 
     }
 

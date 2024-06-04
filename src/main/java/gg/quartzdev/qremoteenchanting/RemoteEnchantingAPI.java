@@ -1,4 +1,4 @@
-package gg.quartzdev.qtemplateplugin;
+package gg.quartzdev.qremoteenchanting;
 
 import gg.quartzdev.lib.qlibpaper.QPerm;
 import gg.quartzdev.lib.qlibpaper.QPluginAPI;
@@ -6,32 +6,36 @@ import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.lib.qlibpaper.QLogger;
 import gg.quartzdev.metrics.bukkit.Metrics;
-import gg.quartzdev.qtemplateplugin.commands.CMD;
-import gg.quartzdev.qtemplateplugin.commands.CMDreload;
-import gg.quartzdev.qtemplateplugin.listeners.ExampleListener;
-import gg.quartzdev.qtemplateplugin.listeners.UpdateCheckerListener;
-import gg.quartzdev.qtemplateplugin.storage.ConfigPath;
-import gg.quartzdev.qtemplateplugin.storage.YMLconfig;
-import gg.quartzdev.qtemplateplugin.util.Messages;
+import gg.quartzdev.qremoteenchanting.commands.CMD;
+import gg.quartzdev.qremoteenchanting.commands.CMDreload;
+import gg.quartzdev.qremoteenchanting.commands.CMDset;
+import gg.quartzdev.qremoteenchanting.listeners.RightClickListener;
+import gg.quartzdev.qremoteenchanting.listeners.UpdateCheckerListener;
+import gg.quartzdev.qremoteenchanting.storage.ConfigPath;
+import gg.quartzdev.qremoteenchanting.storage.YMLconfig;
+import gg.quartzdev.qremoteenchanting.util.Messages;
 import org.bukkit.Bukkit;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
-public class TemplateAPI implements QPluginAPI {
-    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>TemplatePlugin<white>]";
-    private final String CHAT_PREFIX = "<red>q<aqua>TemplatePlugin <bold><gray>>></bold>";
-    private final String MODRINTH_SLUG = "qtemplate";
+public class RemoteEnchantingAPI implements QPluginAPI {
+    private final String CONSOLE_PREFIX = "<white>[<red>q<aqua>RemoteEnchanting<white>]";
+    private final String CHAT_PREFIX = "<aqua>RemoteEnchanting <bold><gray>>></bold>";
+    private final String MODRINTH_SLUG = "qremoteenchanting";
     private final String MODRINTH_LOADER = "paper";
 
-    private static TemplateAPI apiInstance;
-    private static QTemplatePlugin pluginInstance;
+    private static RemoteEnchantingAPI apiInstance;
+    private static QRemoteEnchanting pluginInstance;
     private static Messages messages;
     private static QCommandMap commandMap;
     private static gg.quartzdev.metrics.bukkit.Metrics metrics;
     private static YMLconfig config;
 
-    public static QTemplatePlugin getPlugin(){
+    private static EnchanterManager enchanterManager;
+
+    public static QRemoteEnchanting getPlugin(){
         return pluginInstance;
     }
 
@@ -39,10 +43,10 @@ public class TemplateAPI implements QPluginAPI {
         return config;
     }
 
-    private TemplateAPI(){
+    private RemoteEnchantingAPI(){
     }
 
-    private TemplateAPI(QTemplatePlugin plugin, int bStatsPluginId){
+    private RemoteEnchantingAPI(QRemoteEnchanting plugin, int bStatsPluginId){
 
 //        Used to get plugin instance in other classes
         pluginInstance = plugin;
@@ -60,6 +64,7 @@ public class TemplateAPI implements QPluginAPI {
 
 //        Sets up config.yml
         setupConfig();
+        setupEnchanterManager();
 
 //        Initializes bukkit event listeners
         registerListeners();
@@ -69,12 +74,12 @@ public class TemplateAPI implements QPluginAPI {
     }
 
     @SuppressWarnings("SameParameterValue")
-    protected static void enable(QTemplatePlugin plugin, int bStatsPluginId){
+    protected static void enable(QRemoteEnchanting plugin, int bStatsPluginId){
         if(apiInstance != null){
             QLogger.error(GenericMessages.ERROR_PLUGIN_ENABLE);
             return;
         }
-        apiInstance = new TemplateAPI(plugin, bStatsPluginId);
+        apiInstance = new RemoteEnchantingAPI(plugin, bStatsPluginId);
     }
 
     protected static void disable(){
@@ -114,16 +119,27 @@ public class TemplateAPI implements QPluginAPI {
 
     public void registerCommands(){
         commandMap = new QCommandMap();
-        String label = "qclaimblocks";
-        commandMap.create(label, new CMD("", QPerm.GROUP_PLAYER), List.of("claimblocks", "cb"));
+        new QPerm("qenchant.");
+        String label = "qremoteenchanting";
+        List<String> aliases = config.get(ConfigPath.ALIASES, List.of("enchanter"));
+        QLogger.info("<prefix> Aliases: " + Arrays.toString(aliases.toArray()));
+        commandMap.create(label, new CMD("", QPerm.GROUP_PLAYER), aliases);
         commandMap.addSubCommand(label, new CMDreload("reload", QPerm.GROUP_ADMIN));
+        commandMap.addSubCommand(label, new CMDset("set", QPerm.GROUP_ADMIN));
     }
 
     public void registerListeners(){
-        Bukkit.getPluginManager().registerEvents(new ExampleListener(), pluginInstance);
+        Bukkit.getPluginManager().registerEvents(new RightClickListener(), pluginInstance);
         if(config.get(ConfigPath.CHECK_UPDATES, true)){
             setupUpdater(MODRINTH_SLUG, MODRINTH_LOADER);
         }
+    }
+
+    public void setupEnchanterManager(){
+        enchanterManager = new EnchanterManager();
+    }
+    public static EnchanterManager getEnchanterManager(){
+        return enchanterManager;
     }
 
     public void setupConfig(){

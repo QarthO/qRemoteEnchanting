@@ -1,11 +1,10 @@
-package gg.quartzdev.qtemplateplugin.commands;
+package gg.quartzdev.qremoteenchanting.commands;
 
 import gg.quartzdev.lib.qlibpaper.Sender;
 import gg.quartzdev.lib.qlibpaper.commands.QCommand;
-import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
 import gg.quartzdev.lib.qlibpaper.lang.QPlaceholder;
-import gg.quartzdev.qtemplateplugin.TemplateAPI;
-import gg.quartzdev.qtemplateplugin.util.Messages;
+import gg.quartzdev.qremoteenchanting.RemoteEnchantingAPI;
+import gg.quartzdev.qremoteenchanting.util.Messages;
 import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
@@ -58,11 +57,11 @@ public class CMDreload extends QCommand {
     }
 
     public void reloadConfig(CommandSender sender){
-        TemplateAPI.getConfig().reload();
+        RemoteEnchantingAPI.getConfig().reload();
         Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE,  "config"));
     }
     public void reloadMessages(CommandSender sender){
-        TemplateAPI.loadCustomMessages();
+        RemoteEnchantingAPI.loadCustomMessages();
         Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE,  "messages"));
     }
 }

@@ -23,3 +23,10 @@ check-updates: true
 # |                          Section                           | #
 # +------------------------------------------------------------+ #
 ##################################################################
+
+# requires 'qremoteenchanting.group.player' permission to enchant
+aliases:
+  - "remoteenchanting"
+  - "enchanter"
+  - "enchant"
+  - "ench"

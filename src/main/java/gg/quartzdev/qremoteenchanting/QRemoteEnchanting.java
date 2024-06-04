@@ -1,9 +1,8 @@
-package gg.quartzdev.qtemplateplugin;
+package gg.quartzdev.qremoteenchanting;
 
-import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class QTemplatePlugin extends JavaPlugin {
+public final class QRemoteEnchanting extends JavaPlugin {
 
     @Override
     public void onEnable() {
@@ -13,12 +12,12 @@ public final class QTemplatePlugin extends JavaPlugin {
 //        ConfigurationSerialization.registerClass(PUT_CLASS_HERE.class);
 
 //        Enables the plugin
-        TemplateAPI.enable(this, -1);
+        RemoteEnchantingAPI.enable(this, -1);
 
     }
 
     @Override
     public void onDisable() {
-        TemplateAPI.disable();
+        RemoteEnchantingAPI.disable();
     }
 }
