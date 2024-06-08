@@ -16,6 +16,8 @@ public class Messages extends GenericMessages {
             "<prefix> <red>Error: You must be looking at an enchanter");
     public static QMessage ENCHANTER_OPEN = new QMessage(
             "<prefix> <green>Opening your enchanter");
+    public static QMessage SYNTAX_RELOAD = new QMessage(
+            "<prefix> <red>Syntax: /<label> reload <file>");
 
     public Messages(String consolePrefix, String chatPrefix){
         super(consolePrefix, chatPrefix);

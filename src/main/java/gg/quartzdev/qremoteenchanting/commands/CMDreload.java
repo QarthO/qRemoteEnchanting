@@ -18,34 +18,29 @@ public class CMDreload extends QCommand {
 
     @Override
     public boolean logic(CommandSender sender, String label, String[] args) {
-//        reload all configs
-        reloadConfig(sender);
-        reloadMessages(sender);
-        return true;
-//        if (args.length == 1) {
-//            reloadConfig(sender);
-//            reloadMessages(sender);
-//            reloadTransactions(sender);
-//            return true;
-//        }
-//        return switch (args[1]) {
-//            case "config" -> {
-//                reloadConfig(sender);
-//                yield true;
-//            }
-//            case "messages" -> {
-//                reloadMessages(sender);
-//                yield true;
-//            }
-//            case "transactions" -> {
-//                reloadTransactions(sender);
-//                yield true;
-//            }
-//            default -> {
-//                Sender.message(sender, "<red>Unknown file to reload: <yellow>" + args[1] + "</red>");
-//                yield false;
-//            }
-//        };
+        switch (args.length) {
+            case 1:
+                reloadConfig(sender);
+                reloadMessages(sender);
+                return true;
+            case 2:
+                switch(args[1]){
+                    case "config":
+                        reloadConfig(sender);
+                        return true;
+                    case "messages":
+                        reloadMessages(sender);
+                        return true;
+                    default:
+                        Sender.message(sender, "<red>Unknown file to reload: <yellow>" + args[1] + "</red>");
+                        return false;
+                }
+            default:
+                Sender.message(sender, Messages.SYNTAX_RELOAD
+                        .parse("label", label)
+                        .get());
+                return false;
+        }
     }
 
     @Override
