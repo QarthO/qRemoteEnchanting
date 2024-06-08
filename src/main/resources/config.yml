@@ -1,12 +1,12 @@
-##################################################################
-# +------------------------------------------------------------+ #
-# |                   qTemplate Config                         | #
-# |   Source:   https://github.com/QarthO/qTemplate/           | #
-# |   Download: https://modrinth.com/plugin/qTemplate/         | #
-# |   Donate:   https://quartzdev.gg/donate/                   | #
-# |   Discord:  https://quartzdev.gg/discord/                  | #
-# +------------------------------------------------------------+ #
-##################################################################
+####################################################################
+# +--------------------------------------------------------------+ #
+# |                   qRemoteEnchanting Config                   | #
+# |   Source:   https://github.com/QarthO/qRemoteEnchanting/     | #
+# |   Download: https://modrinth.com/plugin/qRemoteEnchanting/   | #
+# |   Donate:   https://quartzdev.gg/donate/                     | #
+# |   Discord:  https://quartzdev.gg/discord/                    | #
+# +--------------------------------------------------------------+ #
+####################################################################
 
 # Default Config
 schema-version: 1.0
@@ -24,7 +24,7 @@ check-updates: true
 # +------------------------------------------------------------+ #
 ##################################################################
 
-# requires 'enchanter.open' permission to enchant
+# requires 'q.enchanter.use' permission to enchant
 aliases:
   - "enchanter"
   - "enchant"
