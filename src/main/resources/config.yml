@@ -24,9 +24,8 @@ check-updates: true
 # +------------------------------------------------------------+ #
 ##################################################################
 
-# requires 'qremoteenchanting.group.player' permission to enchant
+# requires 'enchanter.open' permission to enchant
 aliases:
-  - "remoteenchanting"
   - "enchanter"
   - "enchant"
   - "ench"

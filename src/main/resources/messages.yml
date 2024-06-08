@@ -21,6 +21,9 @@ ERROR_NO_PERMISSION: "<prefix> <red>Error: You don't have permission to perform 
 # Player attempts to run a command that's only available in the console
 ERROR_CONSOLE_ONLY_COMMAND: "<prefix> <red>This command can only be ran from the console"
 
+# Console attempts to run a command that's only available in-game
+ERROR_PLAYER_ONLY_COMMAND: "<prefix> <red>This command can only be ran from in-game"
+
 # If no sub-command is found
 CMD_NOT_FOUND: "<prefix> <red>Unknown command: <yellow><command>"
 

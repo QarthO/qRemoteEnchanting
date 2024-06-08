@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 public class CMDset extends QCommand {
 
     public CMDset(String commandName, String permissionGroup) {
-        super(commandName, permissionGroup);
+        super("q.enchanter.set", "q.group.admin");
     }
 
     @Override

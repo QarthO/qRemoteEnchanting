@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CMD extends QCommand {
-    public CMD(String commandName, String permissionGroup) {
-        super(commandName, permissionGroup);
+    public CMD() {
+        super("q.enchanter.use", "q.group.player");
     }
 
     @Override
@@ -18,6 +18,7 @@ public class CMD extends QCommand {
             Sender.message(sender, Messages.ERROR_PLAYER_ONLY_COMMAND);
             return false;
         }
+        Sender.message(player, Messages.ENCHANTER_OPEN);
         player.openEnchanting(RemoteEnchantingAPI.getEnchanterManager().getDefaultEnchanterLocation(), true);
         return true;
     }

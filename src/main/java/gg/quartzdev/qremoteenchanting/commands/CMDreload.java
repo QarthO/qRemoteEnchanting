@@ -11,15 +11,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CMDreload extends QCommand {
-    List<String> reloadableFiles = List.of("config", "messages", "transactions");
+    List<String> reloadableFiles = List.of("config", "messages");
     public CMDreload(String commandName, String permissionGroup) {
-        super(commandName, permissionGroup);
+        super("q.enchanter.reload", "q.group.admin");
     }
 
     @Override
     public boolean logic(CommandSender sender, String label, String[] args) {
-        Sender.message(sender, "<blue>Args[<yellow>" + args.length + "<blue>] <gray>- <red>" + Arrays.toString(args));
 //        reload all configs
+        reloadConfig(sender);
         reloadMessages(sender);
         return true;
 //        if (args.length == 1) {

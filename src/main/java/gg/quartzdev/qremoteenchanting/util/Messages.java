@@ -14,6 +14,8 @@ public class Messages extends GenericMessages {
     //    WITHDRAW CLAIMBLOCKS
     public static QMessage ERROR_NOT_LOOKING_AT_ENCHANTER = new QMessage(
             "<prefix> <red>Error: You must be looking at an enchanter");
+    public static QMessage ENCHANTER_OPEN = new QMessage(
+            "<prefix> <green>Opening your enchanter");
 
     public Messages(String consolePrefix, String chatPrefix){
         super(consolePrefix, chatPrefix);

@@ -1,6 +1,5 @@
 package gg.quartzdev.qremoteenchanting;
 
-import gg.quartzdev.lib.qlibpaper.QPerm;
 import gg.quartzdev.lib.qlibpaper.QPluginAPI;
 import gg.quartzdev.lib.qlibpaper.commands.QCommandMap;
 import gg.quartzdev.lib.qlibpaper.lang.GenericMessages;
@@ -119,13 +118,11 @@ public class RemoteEnchantingAPI implements QPluginAPI {
 
     public void registerCommands(){
         commandMap = new QCommandMap();
-        new QPerm("qenchant.");
         String label = "qremoteenchanting";
         List<String> aliases = config.get(ConfigPath.ALIASES, List.of("enchanter"));
-        QLogger.info("<prefix> Aliases: " + Arrays.toString(aliases.toArray()));
-        commandMap.create(label, new CMD("", QPerm.GROUP_PLAYER), aliases);
-        commandMap.addSubCommand(label, new CMDreload("reload", QPerm.GROUP_ADMIN));
-        commandMap.addSubCommand(label, new CMDset("set", QPerm.GROUP_ADMIN));
+        commandMap.create(label, new CMD(), aliases);
+        commandMap.addSubCommand(label, new CMDreload("reload", ""));
+        commandMap.addSubCommand(label, new CMDset("set", ""));
     }
 
     public void registerListeners(){
