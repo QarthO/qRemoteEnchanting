@@ -12,7 +12,7 @@
     <name>qRemoteEnchanting</name>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -94,7 +94,7 @@
         <dependency>
             <groupId>com.github.QarthO</groupId>
             <artifactId>qlib-paper</artifactId>
-            <version>9399938fe0</version>
+            <version>fa6b8279cc</version>
             <scope>compile</scope>
         </dependency>
 

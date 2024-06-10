@@ -21,4 +21,8 @@ public class EnchanterManager {
     public Location getDefaultEnchanterLocation(){
         return enchanters.get(ConfigPath.DEFAULT_ENCHANTER, null);
     }
+
+    public void reload(){
+        enchanters.reload();
+    }
 }

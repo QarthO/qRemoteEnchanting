@@ -22,6 +22,7 @@ public class CMDreload extends QCommand {
             case 1:
                 reloadConfig(sender);
                 reloadMessages(sender);
+                reloadEnchanters(sender);
                 return true;
             case 2:
                 switch(args[1]){
@@ -30,6 +31,9 @@ public class CMDreload extends QCommand {
                         return true;
                     case "messages":
                         reloadMessages(sender);
+                        return true;
+                    case "enchanters":
+                        reloadEnchanters(sender);
                         return true;
                     default:
                         Sender.message(sender, "<red>Unknown file to reload: <yellow>" + args[1] + "</red>");
@@ -58,5 +62,9 @@ public class CMDreload extends QCommand {
     public void reloadMessages(CommandSender sender){
         RemoteEnchantingAPI.loadCustomMessages();
         Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE,  "messages"));
+    }
+    public void reloadEnchanters(CommandSender sender){
+        RemoteEnchantingAPI.getEnchanterManager().reload();
+        Sender.message(sender, Messages.FILE_RELOAD.parse(QPlaceholder.FILE,  "enchanters"));
     }
 }
