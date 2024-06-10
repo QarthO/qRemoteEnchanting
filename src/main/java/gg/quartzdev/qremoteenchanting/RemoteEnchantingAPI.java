@@ -121,8 +121,8 @@ public class RemoteEnchantingAPI implements QPluginAPI {
         String label = "qremoteenchanting";
         List<String> aliases = config.get(ConfigPath.ALIASES, List.of("enchanter"));
         commandMap.create(label, new CMD(), aliases);
-        commandMap.addSubCommand(label, new CMDreload("reload", ""));
-        commandMap.addSubCommand(label, new CMDset("set", ""));
+        commandMap.addSubCommand(label, new CMDreload());
+        commandMap.addSubCommand(label, new CMDset());
     }
 
     public void registerListeners(){

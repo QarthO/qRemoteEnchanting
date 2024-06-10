@@ -4,12 +4,13 @@ import gg.quartzdev.lib.qlibpaper.Sender;
 import gg.quartzdev.lib.qlibpaper.commands.QCommand;
 import gg.quartzdev.qremoteenchanting.RemoteEnchantingAPI;
 import gg.quartzdev.qremoteenchanting.util.Messages;
+import gg.quartzdev.qremoteenchanting.util.Perm;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CMD extends QCommand {
     public CMD() {
-        super("q.enchanter.use", "q.group.player");
+        super(Perm.ENCHANTER_USE.get(), Perm.GROUP_PLAYER.get());
     }
 
     @Override

@@ -5,15 +5,18 @@ import gg.quartzdev.lib.qlibpaper.commands.QCommand;
 import gg.quartzdev.lib.qlibpaper.lang.QPlaceholder;
 import gg.quartzdev.qremoteenchanting.RemoteEnchantingAPI;
 import gg.quartzdev.qremoteenchanting.util.Messages;
+import gg.quartzdev.qremoteenchanting.util.Perm;
 import org.bukkit.command.CommandSender;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class CMDreload extends QCommand {
-    List<String> reloadableFiles = List.of("config", "messages");
-    public CMDreload(String commandName, String permissionGroup) {
-        super("q.enchanter.reload", "q.group.admin");
+
+    final List<String> reloadableFiles = List.of("config", "messages", "enchanters");
+
+    public CMDreload() {
+        super(Perm.ENCHANTER_RELOAD.get(), Perm.GROUP_ADMIN.get());
     }
 
     @Override

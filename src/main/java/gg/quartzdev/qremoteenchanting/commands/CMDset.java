@@ -4,6 +4,7 @@ import gg.quartzdev.lib.qlibpaper.Sender;
 import gg.quartzdev.lib.qlibpaper.commands.QCommand;
 import gg.quartzdev.qremoteenchanting.RemoteEnchantingAPI;
 import gg.quartzdev.qremoteenchanting.util.Messages;
+import gg.quartzdev.qremoteenchanting.util.Perm;
 import org.bukkit.FluidCollisionMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -12,8 +13,8 @@ import org.bukkit.entity.Player;
 
 public class CMDset extends QCommand {
 
-    public CMDset(String commandName, String permissionGroup) {
-        super("q.enchanter.set", "q.group.admin");
+    public CMDset() {
+        super(Perm.ENCHANTER_SET.get(), Perm.GROUP_ADMIN.get());
     }
 
     @Override
