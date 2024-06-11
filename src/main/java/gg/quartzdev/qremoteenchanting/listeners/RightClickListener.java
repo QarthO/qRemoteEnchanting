@@ -20,7 +20,6 @@ public class RightClickListener implements Listener {
         remoteMaterial = config.get(ConfigPath.REMOTE_MATERIAL, Material.GHAST_TEAR);
     }
 
-
     @EventHandler
     public void onRightClick(PlayerInteractEvent event){
 

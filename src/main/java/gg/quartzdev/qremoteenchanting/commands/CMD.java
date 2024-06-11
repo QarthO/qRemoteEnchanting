@@ -20,7 +20,7 @@ public class CMD extends QCommand {
             return false;
         }
         Sender.message(player, Messages.ENCHANTER_OPEN);
-        player.openEnchanting(RemoteEnchantingAPI.getEnchanterManager().getDefaultEnchanterLocation(), true);
+        player.openEnchanting(RemoteEnchantingAPI.enchanters().getDefaultLocation(), true);
         return true;
     }
 

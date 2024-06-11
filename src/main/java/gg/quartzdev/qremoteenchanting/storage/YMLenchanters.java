@@ -59,4 +59,12 @@ public class YMLenchanters extends QConfiguration {
             return null;
         }
     }
+
+    public void setDefaultLocation(Location location){
+        set(ConfigPath.DEFAULT_ENCHANTER, location);
+    }
+
+    public Location getDefaultLocation(){
+        return get(ConfigPath.DEFAULT_ENCHANTER, null);
+    }
 }

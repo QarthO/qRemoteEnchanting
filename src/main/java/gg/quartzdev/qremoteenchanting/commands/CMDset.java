@@ -28,9 +28,8 @@ public class CMDset extends QCommand {
             Sender.message(sender, Messages.ERROR_NOT_LOOKING_AT_ENCHANTER.get());
             return false;
         }
-        RemoteEnchantingAPI.getEnchanterManager().setDefaultEnchanter(block.getLocation());
-
-
+        RemoteEnchantingAPI.enchanters().setDefaultLocation(block.getLocation());
+        Sender.message(sender, Messages.ENCHANTER_SET_DEFAULT.get());
         return false;
     }
 

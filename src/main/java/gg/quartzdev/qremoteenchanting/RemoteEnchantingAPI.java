@@ -12,6 +12,7 @@ import gg.quartzdev.qremoteenchanting.listeners.RightClickListener;
 import gg.quartzdev.qremoteenchanting.listeners.UpdateCheckerListener;
 import gg.quartzdev.qremoteenchanting.storage.ConfigPath;
 import gg.quartzdev.qremoteenchanting.storage.YMLconfig;
+import gg.quartzdev.qremoteenchanting.storage.YMLenchanters;
 import gg.quartzdev.qremoteenchanting.util.Messages;
 import org.bukkit.Bukkit;
 
@@ -31,8 +32,7 @@ public class RemoteEnchantingAPI implements QPluginAPI {
     private static QCommandMap commandMap;
     private static gg.quartzdev.metrics.bukkit.Metrics metrics;
     private static YMLconfig config;
-
-    private static EnchanterManager enchanterManager;
+    private static YMLenchanters enchanters;
 
     public static QRemoteEnchanting getPlugin(){
         return pluginInstance;
@@ -133,10 +133,10 @@ public class RemoteEnchantingAPI implements QPluginAPI {
     }
 
     public void setupEnchanterManager(){
-        enchanterManager = new EnchanterManager();
+        enchanters = new YMLenchanters(pluginInstance, "enchanters.yml", false);
     }
-    public static EnchanterManager getEnchanterManager(){
-        return enchanterManager;
+    public static YMLenchanters enchanters(){
+        return enchanters;
     }
 
     public void setupConfig(){
