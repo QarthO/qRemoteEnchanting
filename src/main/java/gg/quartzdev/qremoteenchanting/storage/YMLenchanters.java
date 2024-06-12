@@ -7,6 +7,8 @@ import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.UUID;
 import java.util.function.Supplier;
 
 public class YMLenchanters extends QConfiguration {
@@ -66,5 +68,10 @@ public class YMLenchanters extends QConfiguration {
 
     public Location getDefaultLocation(){
         return get(ConfigPath.DEFAULT_ENCHANTER, null);
+    }
+
+    public void setLocation(UUID uuid, Location location){
+        yamlConfiguration.set(ConfigPath.ENCHANTERS.get() + "." + uuid.toString(),location);
+        save();
     }
 }

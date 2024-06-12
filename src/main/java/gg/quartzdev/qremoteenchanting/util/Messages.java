@@ -22,6 +22,8 @@ public class Messages extends GenericMessages {
             "<prefix> <green><player> enchanter location has been set");
     public static QMessage SYNTAX_RELOAD = new QMessage(
             "<prefix> <red>Syntax: /<label> reload <file>");
+    public static QMessage SYNTAX_SET = new QMessage(
+            "<prefix> <red>Syntax: /<label> set");
     public static QMessage ERROR_UNKNOWN_FILE_RELOAD = new QMessage(
             "<prefix> <red>Unknown file to reload: <yellow><file>");
 
